@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/kuwan.css"/>
+	</head>
+	<body>
+		<nav>
+			<div class="nav_zhong">
+				<div class="logo"></div>
+				<div class="nav_dh"></div>
+				<div class="nav_dh2"></div>
+			</div>
+		</nav>
+		<section></section>
+		<footer>
+			<div class="footer_zhong"></div>
+		</footer>
+	</body>
+	<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			//导航
+			var logo={"href":"index","src":"logonew.png","height":"34px"}
+			$(".logo").append('<a href="'+logo.href+'.html"><img src="img/'+logo.src+'" height="'+logo.height+'"/></a>');
+			
+			$(".nav_dh").append("<ul></ul>")
+			var dh=[
+				{"href":"index","nr":"首页"},
+				{"href":"kuwan","nr":"酷玩","color":"#FE584D"},
+				{"href":"daogou","nr":"导购"},
+				{"href":"miandaquan","nr":"试用"},
+				{"href":"bao","nr":"报告"},
+			]
+			var d="";
+			for (var i=0;i<dh.length;i++) {
+				d+='<li><a href="'+dh[i].href+'.html" style="color: '+dh[i].color+';">'+dh[i].nr+'</a></li>'
+			}
+			$(".nav_dh>ul").html(d);
+			
+			var sousuo={"src":"search.png","height":"18px"}
+			$(".nav_dh").append('<div class="sousuo"><img src="img/'+sousuo.src+'" height="'+sousuo.height+'"/></div>');
+			
+			var zc={"href":"zhuce","color":"#fe584d","nr":"注册"}
+			$(".nav_dh").append('<div class="zhuce"><span><a href="'+zc.href+'.html" style="color: '+zc.color+';">'+zc.nr+'</a></span></div>');
+			
+			$(".nav_dh2").html('<div class="nav_dhli"></div>');
+			$(".nav_dhli").prepend('<div class="sousuo2"><img src="img/'+sousuo.src+'" height="'+sousuo.height+'"/></div>')
+			var ip={"type":"text","placeholder":"您想要找些什么"}
+			$(".sousuo2").after('<input type="'+ip.type+'" id="sou" placeholder="'+ip.placeholder+'"/>');
+			$(".nav_dhli").append('<div class="cha">x</div>');
+			
+			//内容
+			$("section").html('<div class="section_zhong"></div>');
+			$(".section_zhong").html('<div class="section_zhong_shang"><p>发现酷玩</p></div>');
+			$(".section_zhong_shang").after('<div class="section_zhong_xia"><ul class="fen"></ul></div>');
+			var zui=[
+				{"href":"kuwan","nr":"最新","class":"add"},
+				{"href":"kuwanzui","nr":"最热"},
+				{"href":"kuwanpin","nr":"品类"}
+			]
+			var zuii="";
+			for (var i=0;i<zui.length;i++) {
+				zuii+='<a href="'+zui[i].href+'.html" class="'+zui[i].class+'">'+zui[i].nr+'</a>'
+			}
+			$(".fen").html(zuii);
+			
+			$(".section_zhong").after('<div class="section_xia"><div class="section_xia_zhong"><div class="section2"><div class="section2_zhong"></div></div></div></div>');
+			var mao=[
+				{"class":"section2_zhong_xia",},
+				{"class":"section2_zhong_xia","mar":"30px"},
+				{"class":"section2_zhong_xia","mar":"30px"},
+				{"class":"section2_zhong_xia","mar":"30px"},
+				{"class":"section2_zhong_xia jia","mar":"30px"},
+				{"class":"section2_zhong_xia jia","mar":"30px"}
+			]
+			var maoo="";
+			for (var i=0;i<mao.length;i++) {
+				maoo+='<ul class="'+mao[i].class+'" style="margin-top: '+mao[i].mar+';"></ul>'
+			}
+			$(".section2_zhong").append(maoo);
+			
+			var li=[
+				{"src":"k3.jpg","p1":"Mozbii 触控吸色笔","p2":"能吸取65000种颜色","jg":"￥1212",},
+				{"src":"k2.jpg","p1":"B&O BeoSound 35 音响","p2":"支持所有音乐流媒体服务","jg":"￥5182",},
+				{"height":"142px","src":"k1.jpg","p1":"SCiO 微型光谱仪","p2":"可以测定食物成分及营养","jg":"￥1212",},
+				{"src":"k4.jpg","p1":"XPLORER 2 航拍飞行器","p2":"搭载自动避障系统","jg":"￥4333",}
+			]
+			var lii="";
+			for (var i=0;i<li.length;i++) {
+				lii+='<li><div class="zhe"></div><p style="height: '+li[i].height+';"><img src="img/'+li[i].src+'" width="100%" height="100%"/></p><p>'+li[i].p1+'</p><p>'+li[i].p2+'</p><p><span>'+li[i].jg+'</span> <span><img src="img/xin.png"/>   3   <img src="img/reply.png"/>   3</span></p></li>'
+			}
+			$(".section2_zhong_xia").html(lii);
+			$(".section2_zhong").append('<div class="jiazai"><span><img src="img/more.png"/> 点击<span>加载</span>更多</span></div>')
+			
+			//尾部
+			
+			$(".footer_zhong").html('<div class="footer_zhong_shang"></div>');
+			var k1={"src":"code.png"}
+			$(".footer_zhong_shang").prepend('<div class="kuai1"><img src="img/'+k1.src+'" width="100%"/></div>')
+			var k2={"src":"logoImg.jpg","p1":"全球酷玩试用导购平台","p2":"酷·新奇·好玩·品质","p3":"微信添加“JguoJguo”","p4":"获取我们的服务。"}
+			$(".footer_zhong_shang").append('<div class="kuai2"><img src="img/'+k2.src+'"/><p style="margin-top: 25px;">'+k2.p1+'</p><p>'+k2.p2+'</p><p style="margin-top: 25px;">'+k2.p3+'</p><p>'+k2.p4+'</p></div>')
+			var k3={"href":"mianshi","p1":"免费试用","p2":"试用流程","p3":"如何提高成功率"}
+			$(".footer_zhong_shang").append('<div class="kuai2"><p><a href="'+k3.href+'.html">'+k3.p1+'</a></p><ul><li>'+k3.p2+'</li><li>'+k3.p3+'</li></ul></div>')
+			$(".footer_zhong_shang").append('<div class="kuai2"><p><a href="">友情链接</a></p><div class="zhidongxi"><ul></ul><ul style="margin-left: 15px;"></ul></div></div>')
+			var fooul=["智东西","搜狐IT","搜狐数码","凤凰数码","泡泡网","ZUK社区","极客公园","果库"]
+			for (var i=0;i<fooul.length;i++) {
+				$(".zhidongxi>ul").eq(0).append('<li>'+fooul[i]+'</li>');
+			}
+			var foou=["WEIBUSI","腾讯科技","凤凰科技","PConline","3W咖啡","亿觅emie","易迅易启玩"]
+			for (var i=0;i<foou.length;i++) {
+				$(".zhidongxi>ul").eq(1).append('<li>'+foou[i]+'</li>');
+			}
+			$(".footer_zhong_shang").append('<div class="kuai2"><p><a href="">购买攻略</a></p><ul></ul></div>')
+			var fooull=["美亚海淘教程","日亚海淘教程","海淘转运攻略","kickstarter 众筹购买攻略","indiegogo 众筹购买攻略"]
+			for (var i=0;i<fooull.length;i++) {
+				$(".footer_zhong_shang>.kuai2").eq(3).children('ul').append('<li>'+fooull[i]+'</li>');
+			}
+			$(".footer_zhong_shang").append('<div class="kuai2"><p><a href="shangwu.html">厂商合作</a></p><ul></ul></div>')
+			var fooulll=["关于极果","联系我们","商务合作：BD@jiguo.com","CEO邮箱：CEO@jiguo.com"]
+			for (var i=0;i<fooulll.length;i++) {
+				$(".footer_zhong_shang>.kuai2").eq(4).children('ul').append('<li>'+fooull[i]+'</li>');
+			}
+			$(".footer_zhong").append('<div class="footer_zhong_xia">&copy;2016 极果版权所有</div>')
+			
+			
+			
+			
+		})
+		
+		
+		
+		
+	</script>
+	<script src="js/kuwan.js" type="text/javascript" charset="utf-8"></script>
+	
+</html>
